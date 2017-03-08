@@ -64,3 +64,7 @@ $ acpi
 $ bash
 
 $ xbacklight -get
+
+Screenshots:
+
+![alt tag](https://quisl.files.wordpress.com/2017/03/screenshot.png)
