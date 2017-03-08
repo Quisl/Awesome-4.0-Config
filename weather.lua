@@ -114,19 +114,23 @@ end
 local weather_timer = timer({ timeout = 60 })
 local resp
 
-weather_timer:connect_signal("timeout", function ()
+function timerends()
     local resp_json = http.request("http://api.openweathermap.org/data/2.5/weather?q=" .. city .."&appid=" .. open_map_key)
     if (resp_json ~= nil) then
         weather_widget.visible = true
         resp = json.decode(resp_json)
         icon_widget.image = path_to_icons .. icon_map[resp.weather[1].icon]
         text_widget:set_text(to_celcius(resp.main.temp) .. '°C')
+        weather_timer.start_new (60,timerends)
     else
         weather_widget.visible = false
+        weather_timer.start_new (60,timerends)
     end
 
 
-end)
+end
+
+weather_timer:connect_signal("timeout", timerends)
 weather_timer:emit_signal("timeout")
 
 weather_widget:connect_signal("mouse::enter", function()
