@@ -272,7 +272,7 @@ globalkeys = awful.util.table.join(
               {description = "go back", group = "tag"}),
               -- Screenshot
               awful.key({ }, "Print",function()
-                  awful.util.spawn("import -window root "..home.."screenshot.png") end, {description = "Screenshot", group = "custom"}),
+                  awful.util.spawn("import -window root "..home.."screenshot.png") end, {description = "Screenshot, saved under $home/screenshot.png", group = "custom"}),
               -- Brightness
 
               awful.key({ }, "XF86MonBrightnessDown", function ()
