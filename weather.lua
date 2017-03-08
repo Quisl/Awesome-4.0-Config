@@ -51,11 +51,12 @@ local icon_widget = wibox.widget {
 local text_widget = wibox.widget{
     font = "Play 9",
     widget = wibox.widget.textbox,
+    text = ""
 }
 
 weather_widget = wibox.widget {
     icon_widget,
-    temp_widget,
+    text_widget,
     layout = wibox.layout.fixed.horizontal,
 }
 
@@ -95,7 +96,7 @@ weather_timer:connect_signal("timeout", function ()
         weather_widget.visible = true
         resp = json.decode(resp_json)
         icon_widget.image = path_to_icons .. icon_map[resp.weather[1].icon]
-        temp_widget:set_text(to_celcius(resp.main.temp) .. '°C')
+        text_widget:set_text(to_celcius(resp.main.temp) .. '°C')
     else
         weather_widget.visible = false
     end

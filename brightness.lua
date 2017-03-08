@@ -1,11 +1,5 @@
 local wibox = require("wibox")
---local awful = require("awful")
---local gears = require("gears")
 local watch = require("awful.widget.watch")
-
---brightness_widget = wibox.widget.textbox()
---brightness_widget:set_font('Play 9')
-
 
 local brightness_icon = wibox.widget {
     {
