@@ -24,11 +24,11 @@ $ apt-get install gnome-themes-standard
 Type:
 
 
-$ cd ~/.config/awesome/
-
 $ git clone https://github.com/Quisl/Awesome4.0Config.git ~/.config/awesome
 
+$ cd ~/.config/awesome/
 
-Then edit the first lines in ~/.config/awesome/rc.lua to configurate. You can get an openweathermap key from https://openweathermap.org/. If you don't want to use the weather widget just leave the lines empty.
+
+Then edit the first lines in ~/.config/awesome/rc.lua to configurate. You can get an openweathermap key from https://openweathermap.org/. If you don't want to use the weather widget just leave the concerning lines empty.
 
 Finally hit [Windows Key] + [CTRL] + [r] to reload.
