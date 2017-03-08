@@ -1,3 +1,4 @@
+home = "/home/quisl/" --your home directory
 configpath = "/home/quisl/.config/awesome/" --path to this awesome configuration (usually ~/.config/awesome)
 iconpath = "/usr/share/icons/Adwaita/scalable/status/"-- path to your iconlist
 vgaenabled = false --change to true if you want to enable dual screen per default
@@ -269,6 +270,9 @@ globalkeys = awful.util.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+              -- Screenshot
+              awful.key({ }, "Print",function()
+                  awful.util.spawn("import -window root "..home.."screenshot.png") end, {description = "Screenshot", group = "custom"}),
               -- Brightness
 
               awful.key({ }, "XF86MonBrightnessDown", function ()
