@@ -17,10 +17,9 @@ volume_widget = wibox.widget {
     end
 }
 
---[[ allows control volume level by:
-- clicking on the widget to mute/unmute
-- scrolling when curson is over the widget
-]]
+--allows control volume level by clicking on the widget to mute/unmute and
+--scrolling when the cursor is over the widget
+
 volume_widget:connect_signal("button::press", function(_,_,_,button)
     if (button == 4) then
         awful.spawn("amixer sset Master 5%+")

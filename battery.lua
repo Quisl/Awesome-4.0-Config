@@ -3,10 +3,6 @@ local awful = require("awful")
 local naughty = require("naughty")
 local watch = require("awful.widget.watch")
 
--- acpi sample outputs
--- Battery 0: Discharging, 75%, 01:51:38 remaining
--- Battery 0: Charging, 53%, 00:57:43 until charged
-
 local path_to_icons = iconpath
 
 battery_widget = wibox.widget {
@@ -20,15 +16,6 @@ battery_widget = wibox.widget {
         self.icon.image = path
     end
 }
-
--- Popup with battery info
---battery_popup = awful.tooltip({objects = {battery_widget}})
-
--- To use colors from beautiful theme put
--- following lines in rc.lua before require("battery")
---
--- beautiful.tooltip_fg = beautiful.fg_normal
--- beautiful.tooltip_bg = beautiful.bg_normal
 
 watch(
     "acpi", 5,
@@ -50,14 +37,8 @@ watch(
             batteryType = string.format(batteryType,'')
         end
         battery_widget.image = path_to_icons .. batteryType .. ".svg"
-
-        -- Update popup text
-        -- TODO: Filter long lines
---        battery_popup.text = string.gsub(stdout, "\n$", "")
     end
 )
-
- --Alternative to tooltip - popup message shown by naughty library. You can compare both and choose the preferred one
 function show_battery_status()
     awful.spawn.easy_async([[bash -c 'acpi']],
         function(stdout, stderr, reason, exit_code)

@@ -1,6 +1,6 @@
 # Awesome4.0Config
 
-This setup is used on a Thinkpad T410 with Debian 9. If you use any other setup you might need to change parts of this configuration.
+This configuration is used on a Thinkpad T410 with Debian 9. If you use any other setup you might need to change parts of this configuration.
 
 To check all available hotkeys press [Windows Key] + [s]
 

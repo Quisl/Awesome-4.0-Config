@@ -48,7 +48,7 @@ local icon_widget = wibox.widget {
     end,
 }
 
-local temp_widget = wibox.widget{
+local text_widget = wibox.widget{
     font = "Play 9",
     widget = wibox.widget.textbox,
 }
