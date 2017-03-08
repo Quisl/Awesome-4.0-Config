@@ -14,6 +14,7 @@ $ apt-get install xbacklight
 
 $ apt-get install lua-socket
 
+$ apt-get install python
 
 Also make sure the Adwaita icons are installed. If you want to use other icons you will need to edit the .lua files manually:
 
@@ -32,3 +33,34 @@ $ cd ~/.config/awesome/
 Then edit the first lines in ~/.config/awesome/rc.lua to configurate. You can get an openweathermap key from https://openweathermap.org/. If you don't want to use the weather widget just leave the concerning lines empty.
 
 Finally hit [Windows Key] + [CTRL] + [r] to reload.
+
+
+This Theme uses following commands in the command line. So make sure these work:
+
+$ import -window root screenshot.png
+
+$ python
+
+$ xbacklight -dec 5
+
+$ xbacklight -inc 5
+
+$ pactl set-sink-volume 0 -10%
+
+$ pactl set-sink-volume 0 +10%
+
+$ amixer set Master +1 toggle
+
+$ amixer sset Master 5%+
+
+$ amixer sset Master 5%-
+
+$ amixer sget Master
+
+$ redshift
+
+$ acpi
+
+$ bash
+
+$ xbacklight -get

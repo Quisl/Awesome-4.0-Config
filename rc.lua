@@ -7,6 +7,8 @@ vgaenabled = false --change to true if you want to enable dual screen per defaul
 pathToOpenmap = "/home/quisl/openmapkey" -- path to a file with an openweathermap key
 open_map_key = "" -- or copy your openweathermap key into this string variale
 city = "Bielefeld,de" -- enter your city + country for the weather information (check: https://openweathermap.org/current)
+terminal = "x-terminal-emulator"
+redshiftconfig = "/home/quisl/.config/redshift.conf" -- configuration file for Redshift
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -63,7 +65,6 @@ end
 beautiful.init(configpath.."default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -613,7 +614,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn("nm-applet")
-awful.util.spawn("redshift -c '/home/quisl/.config/redshift.conf'")
+awful.util.spawn("redshift -c "..redshiftconfig)
 
 --do
 --  local cmds =
