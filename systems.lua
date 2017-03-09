@@ -10,7 +10,7 @@ system_widget = wibox.widget{
 }
 
 watch(
-    "python ".. configpath .."memory.py", 3,
+    "python ".. configpath .."scripts/memory.py", 3,
     function(widget, stdout, stderr, exitreason, exitcode)
         system_widget.markup=stdout
     end
