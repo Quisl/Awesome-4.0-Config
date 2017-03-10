@@ -139,7 +139,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("<span foreground='lightblue'> %a %d %b, %H:%M</span>")
+--mytextclock = wibox.widget.textclock("%d %b %Y, %H:%M")
 
 
 -- Create a wibox for each screen and add it
@@ -614,6 +615,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.util.spawn("nm-applet")
+awful.util.spawn("pkill redshift")
 awful.util.spawn("redshift -c "..redshiftconfig)
 
 --do
