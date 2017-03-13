@@ -614,9 +614,27 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+local redshift = 0
+
+local clock = os.clock
+function sleep(n)  -- seconds
+  local t0 = clock()
+  while clock() - t0 <= n do end
+end
+
+
 awful.util.spawn("nm-applet")
-awful.util.spawn("pkill redshift")
-awful.util.spawn("redshift -c "..redshiftconfig)
+
+awful.spawn.easy_async("bash -c 'ps -ef |grep redshift | wc -l'", function(stdout, stderr, reason, exit_code)
+  naughty.notify { text = "Output: " ..stdout }
+    if (tonumber(stdout)) < 3 then
+      awful.spawn("bash -c 'sleep 5 ; redshift -c "..redshiftconfig.."'")
+    else
+
+    end
+end)
+
+
 
 --do
 --  local cmds =
