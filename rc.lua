@@ -626,7 +626,7 @@ end
 awful.util.spawn("nm-applet")
 
 awful.spawn.easy_async("bash -c 'ps -ef |grep redshift | wc -l'", function(stdout, stderr, reason, exit_code)
-  naughty.notify { text = "Output: " ..stdout }
+  --naughty.notify { text = "Output: " ..stdout }
     if (tonumber(stdout)) < 3 then
       awful.spawn("bash -c 'sleep 5 ; redshift -c "..redshiftconfig.."'")
     else
