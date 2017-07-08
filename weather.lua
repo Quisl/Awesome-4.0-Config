@@ -136,8 +136,9 @@ weather_timer:emit_signal("timeout")
 
 weather_widget:connect_signal("mouse::enter", function()
     local winddirstring = ""
+    local windspeedstring = ""
     if resp.wind.deg == nil or resp.wind.deg == '' then
-      local winddirstring = "//"
+        winddirstring = "//"
     else
       winddir = tonumber(resp.wind.deg)
       if winddir <= 11.25 or winddir >= 348.75 then
@@ -174,6 +175,12 @@ weather_widget:connect_signal("mouse::enter", function()
         winddirstring = "NNW"
       end
     end
+    if resp.wind.speed == nil or resp.wind.speed == '' then
+        windspeedstring = "0"
+    else
+        windspeedstring = resp.wind.speed
+    end
+
     weather_widget_nofity = naughty.notify{
         icon = path_to_icons .. icon_map[resp.weather[1].icon],
         icon_size=20,
@@ -183,7 +190,7 @@ weather_widget:connect_signal("mouse::enter", function()
         ' °C<br><b>Weather: </b>'.. resp.weather[1].description ..
         '<br><b>Humidity:</b> ' .. resp.main.humidity ..
         '%<br><b>Pressure: </b>' .. resp.main.pressure ..
-        ' hPa<br><b>Wind: </b>' .. resp.wind.speed .. ' m/s to ' .. winddirstring ..
+        ' hPa<br><b>Wind: </b>' .. windspeedstring .. ' m/s to ' .. winddirstring ..
         '<br><b>Sunrise: </b>' .. os.date('%H:%M',resp.sys.sunrise) ..
         '<br><b>Sunset: </b>' .. os.date('%H:%M',resp.sys.sunset),
         timeout = 20, hover_timeout = 0.0,

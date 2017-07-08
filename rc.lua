@@ -6,7 +6,7 @@ vgaenabled = false --change to true if you want to enable dual screen per defaul
 -- If you do not want to use the weather widget just leave the following lines empty
 pathToOpenmap = "/home/quisl/openmapkey" -- path to a file with an openweathermap key
 open_map_key = "" -- or copy your openweathermap key into this string variale
-city = "Bielefeld,de" -- enter your city + country for the weather information (check: https://openweathermap.org/current)
+city = "Berlin Koepenick,de" -- enter your city + country for the weather information (check: https://openweathermap.org/current)
 terminal = "x-terminal-emulator"
 redshiftconfig = "/home/quisl/.config/redshift.conf" -- configuration file for Redshift
 -- Standard awesome library
@@ -207,6 +207,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" }, s, awful.layout.layouts[1])
+    --awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -248,7 +249,7 @@ awful.screen.connect_for_each_screen(function(s)
             battery_widget,
             mytextclock,
 
---            s.mylayoutbox,
+         -- s.mylayoutbox,
         },
     }
 end)
@@ -629,8 +630,6 @@ awful.spawn.easy_async("bash -c 'ps -ef |grep redshift | wc -l'", function(stdou
   --naughty.notify { text = "Output: " ..stdout }
     if (tonumber(stdout)) < 3 then
       awful.spawn("bash -c 'sleep 5 ; redshift -c "..redshiftconfig.."'")
-    else
-
     end
 end)
 
