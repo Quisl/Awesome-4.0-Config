@@ -4,11 +4,9 @@ This configuration is used on a Thinkpad T410 with Debian 9. If you use any othe
 
 To check all available hotkeys press [Windows Key] + [s]
 
-HOW TO INSTALL:
-
+# Pre setup
 
 install required packages:
-
 
 $ apt-get install xbacklight
 
@@ -16,14 +14,16 @@ $ apt-get install lua-socket
 
 $ apt-get install python
 
-Also make sure the Adwaita icons are installed. If you want to use other icons you will need to edit the .lua files manually:
+$ apt-get install redshift
 
+
+Also make sure the Adwaita icons are installed. If you want to use other icons you will need to edit the .lua files manually:
 
 $ apt-get install gnome-themes-standard
 
 
-Type:
 
+# Setup
 
 $ git clone https://github.com/Quisl/Awesome4.0Config.git ~/.config/awesome
 
